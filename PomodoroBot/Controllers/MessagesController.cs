@@ -8,6 +8,9 @@ using System.Web.Http.Description;
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Connector.Utilities;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using Microsoft.Bot.Builder.FormFlow;
+using Microsoft.Bot.Builder.Dialogs;
 
 namespace PomodoroBot
 {
@@ -22,11 +25,7 @@ namespace PomodoroBot
         {
             if (message.Type == "Message")
             {
-                // calculate something for us to return
-                int length = (message.Text ?? string.Empty).Length;
-
-                // return our reply to the user
-                return message.CreateReplyMessage($"You sent {length} characters");
+                return await Conversation.SendAsync(message, PomodoroTimer.MakeDialog);
             }
             else
             {
