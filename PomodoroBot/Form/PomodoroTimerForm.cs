@@ -12,10 +12,22 @@ namespace PomodoroBot
     internal class PomodoroTimer
     {
         public string Name { get; set; }
+
+        [Describe("duration minutes")]
+        [Numeric(5, 60)]
         public UInt32 Duration { get; set; }
+
+        [Describe("short break minutes")]
+        [Numeric(1, 20)]
         public UInt32 ShortBreak { get; set; }
-        public UInt32 LongBreak { get; set; }
+
+        [Describe("take a long break when spent many times Pomodoro?")]
+        [Numeric(2, 10)]
         public UInt32 LongBreakSpan { get; set; }
+
+        [Describe("long break minutes")]
+        [Numeric(5, 60)]
+        public UInt32 LongBreak { get; set; }
 
         public PomodoroTimer()
         {
@@ -29,7 +41,7 @@ namespace PomodoroBot
         private static IForm<PomodoroTimer> BuildForm()
         {
             return new FormBuilder<PomodoroTimer>()
-                    .Message("Set your pomodoro timer.")
+                    .Message("set your pomodoro timer.")
                     .Build();
         }
 
