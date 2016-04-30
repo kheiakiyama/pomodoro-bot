@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
+using PomodoroBot.Models;
 
 namespace PomodoroBot.Command
 {
@@ -22,9 +23,14 @@ namespace PomodoroBot.Command
             return new FormBuilder<PomodoroTimer>()
                     .Message("set your pomodoro timer.")
                     .OnCompletionAsync(async (context, state) => {
-                        await CommandTool.Instance.Repository.Add(state, context.UserData.Get<string>(CommandTool.UserIdKey));
+                        var entity = new PomodoroTimerEntity(state) { PartitionKey = context.UserData.Get<string>(CommandTool.UserIdKey) };
+                        await CommandTool.Instance.Repository.Add(entity);
                         context.PerUserInConversationData.SetValue<bool>(CreateTag, false);
                         await context.PostAsync("timer is created.");
+                        entity.StartTimer(async (message) => {
+                            System.Diagnostics.Trace.WriteLine(message);
+                            //await context.PostAsync(message);
+                        });
                     })
                     .Build();
         }

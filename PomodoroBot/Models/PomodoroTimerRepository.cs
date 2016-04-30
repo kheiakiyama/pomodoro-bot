@@ -24,9 +24,9 @@ namespace PomodoroBot.Models
         private static readonly string tableName = "pomodorotimer";
         private CloudTable m_Table;
 
-        public async Task Add(PomodoroTimer timer, string partialKey)
+        public async Task Add(PomodoroTimerEntity entity)
         {
-            await m_Table.ExecuteAsync(TableOperation.Insert(new PomodoroTimerEntity(timer) { PartitionKey = partialKey }));
+            await m_Table.ExecuteAsync(TableOperation.Insert(entity));
         }
     }
 }
