@@ -11,6 +11,8 @@ namespace PomodoroBot.Command
     public class CommandTool
     {
         public PomodoroTimerRepository Repository { get; private set; }
+        public ConnectorClient Client { get; private set; }
+        public ChatRequest Request { get; private set; }
         public static CommandTool Instance { get; private set; }
 
         static CommandTool()
@@ -21,13 +23,8 @@ namespace PomodoroBot.Command
         private CommandTool()
         {
             Repository = new PomodoroTimerRepository();
-        }
-
-        internal static readonly string UserIdKey = "UserId";
-
-        internal void SetUserData(Message message)
-        {
-            message.SetBotUserData(UserIdKey, message.From.Id);
+            Client = new ConnectorClient();
+            Request = new ChatRequest();
         }
     }
 }

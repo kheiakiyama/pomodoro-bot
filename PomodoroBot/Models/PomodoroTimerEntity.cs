@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
+﻿using Microsoft.Bot.Connector;
+using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,14 @@ namespace PomodoroBot.Models
         public int LongBreakSpan { get; set; }
         public int LongBreak { get; set; }
 
+        public string ChannelId { get; set; }
+        public string Address { get; set; }
+
         public PomodoroTimerEntity()
         {
         }
 
-        public PomodoroTimerEntity(PomodoroTimer source)
+        public PomodoroTimerEntity(PomodoroTimer source, ChannelAccount account)
         {
             Name = source.Name;
             Duration = source.Duration;
@@ -27,6 +31,9 @@ namespace PomodoroBot.Models
             LongBreakSpan = source.LongBreakSpan;
             LongBreak = source.LongBreak;
             RowKey = Guid.NewGuid().ToString().Replace("-", "");
+            PartitionKey = account.Id;
+            ChannelId = account.ChannelId;
+            Address = account.Address;
         }
 
         public delegate Task PostMessageDelegate(string message);

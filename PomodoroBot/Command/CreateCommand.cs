@@ -23,13 +23,14 @@ namespace PomodoroBot.Command
             return new FormBuilder<PomodoroTimer>()
                     .Message("set your pomodoro timer.")
                     .OnCompletionAsync(async (context, state) => {
-                        var entity = new PomodoroTimerEntity(state) { PartitionKey = context.UserData.Get<string>(CommandTool.UserIdKey) };
+                        var entity = new PomodoroTimerEntity(state, CommandTool.Instance.Request.GetAccount(context.UserData));
                         await CommandTool.Instance.Repository.Add(entity);
                         context.PerUserInConversationData.SetValue<bool>(CreateTag, false);
                         await context.PostAsync("timer is created.");
                         entity.StartTimer(async (message) => {
                             System.Diagnostics.Trace.WriteLine(message);
-                            //await context.PostAsync(message);
+                            var msg = CommandTool.Instance.Request.CreateMessage(entity, message);
+                            //await CommandTool.Instance.Client.Messages.SendMessageAsync(msg);
                         });
                     })
                     .Build();

@@ -27,7 +27,7 @@ namespace PomodoroBot
         {
             if (message.Type == "Message")
             {
-                CommandTool.Instance.SetUserData(message);
+                CommandTool.Instance.Request.Recive(message);
                 var command = Commands.GetItems()
                     .FirstOrDefault(q => q.DoHandle(message));
                 if (command != null)
