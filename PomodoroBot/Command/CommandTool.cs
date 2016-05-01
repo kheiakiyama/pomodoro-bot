@@ -13,6 +13,7 @@ namespace PomodoroBot.Command
         public PomodoroTimerRepository Repository { get; private set; }
         public ConnectorClient Client { get; private set; }
         public ChatRequest Request { get; private set; }
+        public PomodoroQueueRepository QueueRepository { get; private set; }
         public static CommandTool Instance { get; private set; }
 
         static CommandTool()
@@ -25,6 +26,7 @@ namespace PomodoroBot.Command
             Repository = new PomodoroTimerRepository();
             Client = new ConnectorClient();
             Request = new ChatRequest();
+            QueueRepository = new PomodoroQueueRepository();
         }
     }
 }

@@ -10,13 +10,10 @@ namespace PomodoroBot.Command
 {
     public class ChatRequest
     {
-        private Dictionary<string, string> m_Adresses = new Dictionary<string, string>();
-
         public void Recive(Message message)
         {
-            if (!m_Adresses.ContainsKey(message.To.ChannelId))
-                m_Adresses.Add(message.To.ChannelId, message.To.Address);
             message.SetBotUserData(AccountKey, message.From);
+            message.SetBotUserData(BotAccountKey, message.To);
         }
 
         public ChannelAccount GetAccount(IBotDataBag userData)
@@ -24,14 +21,16 @@ namespace PomodoroBot.Command
             return userData.Get<ChannelAccount>(AccountKey);
         }
 
+        public ChannelAccount GetBotAccount(IBotDataBag userData)
+        {
+            return userData.Get<ChannelAccount>(BotAccountKey);
+        }
+
         public Message CreateMessage(PomodoroTimerEntity entity, string text)
         {
-            if (!m_Adresses.ContainsKey(entity.ChannelId))
-                throw new NotSupportedException();
-
             return new Message()
             {
-                From = new ChannelAccount() { ChannelId = entity.ChannelId, Address = m_Adresses[entity.ChannelId], },
+                From = new ChannelAccount() { ChannelId = entity.ChannelId, Address = entity.BotAddress, },
                 To = new ChannelAccount() { ChannelId = entity.ChannelId, Address = entity.Address },
                 Text = text,
                 Language = "ja"
@@ -39,5 +38,6 @@ namespace PomodoroBot.Command
         }
 
         private static readonly string AccountKey = "Account";
+        private static readonly string BotAccountKey = "BotAccount";
     }
 }

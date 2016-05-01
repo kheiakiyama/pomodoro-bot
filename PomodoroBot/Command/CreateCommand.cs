@@ -7,6 +7,8 @@ using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
 using PomodoroBot.Models;
+using Microsoft.WindowsAzure.Storage.Queue;
+using Newtonsoft.Json;
 
 namespace PomodoroBot.Command
 {
@@ -23,15 +25,18 @@ namespace PomodoroBot.Command
             return new FormBuilder<PomodoroTimer>()
                     .Message("set your pomodoro timer.")
                     .OnCompletionAsync(async (context, state) => {
-                        var entity = new PomodoroTimerEntity(state, CommandTool.Instance.Request.GetAccount(context.UserData));
+                        var entity = new PomodoroTimerEntity(
+                            state, 
+                            CommandTool.Instance.Request.GetAccount(context.UserData),
+                            CommandTool.Instance.Request.GetBotAccount(context.UserData));
                         await CommandTool.Instance.Repository.Add(entity);
                         context.PerUserInConversationData.SetValue<bool>(CreateTag, false);
                         await context.PostAsync("timer is created.");
-                        entity.StartTimer(async (message) => {
-                            System.Diagnostics.Trace.WriteLine(message);
-                            var msg = CommandTool.Instance.Request.CreateMessage(entity, message);
-                            //await CommandTool.Instance.Client.Messages.SendMessageAsync(msg);
-                        });
+                        PomodoroNotification info = new PomodoroNotification()
+                        {
+                            Key = entity.RowKey,
+                        };
+                        CommandTool.Instance.QueueRepository.Add(info);
                     })
                     .Build();
         }

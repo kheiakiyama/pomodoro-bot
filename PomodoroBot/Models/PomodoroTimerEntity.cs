@@ -18,12 +18,13 @@ namespace PomodoroBot.Models
 
         public string ChannelId { get; set; }
         public string Address { get; set; }
+        public string BotAddress { get; set; }
 
         public PomodoroTimerEntity()
         {
         }
 
-        public PomodoroTimerEntity(PomodoroTimer source, ChannelAccount account)
+        public PomodoroTimerEntity(PomodoroTimer source, ChannelAccount from, ChannelAccount bot)
         {
             Name = source.Name;
             Duration = source.Duration;
@@ -31,9 +32,10 @@ namespace PomodoroBot.Models
             LongBreakSpan = source.LongBreakSpan;
             LongBreak = source.LongBreak;
             RowKey = Guid.NewGuid().ToString().Replace("-", "");
-            PartitionKey = account.Id;
-            ChannelId = account.ChannelId;
-            Address = account.Address;
+            PartitionKey = from.Id;
+            ChannelId = from.ChannelId;
+            Address = from.Address;
+            BotAddress = bot.Address;
         }
 
         public delegate Task PostMessageDelegate(string message);
