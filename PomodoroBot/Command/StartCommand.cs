@@ -30,7 +30,7 @@ namespace PomodoroBot.Command
             if (entity != null && await timer.Start(entity))
                 return message.CreateReplyMessage("");
             else
-                return message.CreateReplyMessage($"timer can't started. id:{id}");
+                return message.CreateReplyMessage($"timer can't start. id:{id}");
         }
     }
 }
