@@ -25,18 +25,7 @@ namespace PomodoroBot.Command
         {
             return userData.Get<ChannelAccount>(BotAccountKey);
         }
-
-        public Message CreateMessage(PomodoroTimerEntity entity, string text)
-        {
-            return new Message()
-            {
-                From = new ChannelAccount() { ChannelId = entity.ChannelId, Address = entity.BotAddress, },
-                To = new ChannelAccount() { ChannelId = entity.ChannelId, Address = entity.Address },
-                Text = text,
-                Language = "ja"
-            };
-        }
-
+        
         private static readonly string AccountKey = "Account";
         private static readonly string BotAccountKey = "BotAccount";
     }
