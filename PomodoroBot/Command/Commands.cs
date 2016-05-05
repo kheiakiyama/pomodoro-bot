@@ -15,6 +15,7 @@ namespace PomodoroBot.Command
             yield return new StopCommand();
             yield return new DeleteCommand();
             yield return new ListCommand();
+            yield return new HelpCommand();
         }
     }
 }

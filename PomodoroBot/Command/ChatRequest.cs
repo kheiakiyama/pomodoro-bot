@@ -5,15 +5,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Net.Http;
 
 namespace PomodoroBot.Command
 {
     public class ChatRequest
     {
-        public void Recive(Message message)
+        internal void Recive(Message message, HttpRequestMessage request)
         {
             message.SetBotUserData(AccountKey, message.From);
             message.SetBotUserData(BotAccountKey, message.To);
+            Host = $"http://{request.RequestUri.Authority}";
         }
 
         public ChannelAccount GetAccount(IBotDataBag userData)
@@ -28,6 +30,7 @@ namespace PomodoroBot.Command
 
         private static readonly string AccountKey = "Account";
         private static readonly string BotAccountKey = "BotAccount";
+        internal string Host { get; private set; }
         
         public Message CreateReplyMessage(Message message, string text)
         {

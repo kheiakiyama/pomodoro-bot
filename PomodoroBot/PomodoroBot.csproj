@@ -148,6 +148,7 @@
     <Compile Include="Command\ChatRequest.cs" />
     <Compile Include="Command\Commands.cs" />
     <Compile Include="Command\CommandTool.cs" />
+    <Compile Include="Command\HelpCommand.cs" />
     <Compile Include="Command\ListCommand.cs" />
     <Compile Include="Command\DeleteCommand.cs" />
     <Compile Include="Command\StopCommand.cs" />
