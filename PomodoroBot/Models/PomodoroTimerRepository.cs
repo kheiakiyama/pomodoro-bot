@@ -36,5 +36,10 @@ namespace PomodoroBot.Models
         {
             await m_Table.ExecuteAsync(TableOperation.Insert(entity));
         }
+
+        public async Task Delete(PomodoroTimerEntity entity)
+        {
+            await m_Table.ExecuteAsync(TableOperation.Delete(entity));
+        }
     }
 }
