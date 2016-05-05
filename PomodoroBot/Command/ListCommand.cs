@@ -26,7 +26,7 @@ namespace PomodoroBot.Command
             {
                 foreach (var entity in entities)
                 {
-                    var response = CommandTool.Instance.Request.CreateReplyMessage(message, $"id: {entity.RowKey}");
+                    var response = CommandTool.Instance.Request.CreateReplyMessage(message, $"name: {entity.Name} id: {entity.RowKey}");
                     await CommandTool.Instance.Client.Messages.SendMessageAsync(response);
                 }
                 return message.CreateReplyMessage("");
