@@ -14,8 +14,8 @@ namespace PomodoroBot.Models
     {
         public PomodoroTimerBackend()
         {
-            m_Host = new Uri(Settings.Get("backendhost"));
-            m_ApiKey = Settings.Get("backendapikey");
+            m_Host = new Uri(Settings.Get("BackendHost"));
+            m_ApiKey = Settings.Get("BackendApiKey");
         }
 
         private Uri m_Host;
