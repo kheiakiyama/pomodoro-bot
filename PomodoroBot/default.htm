@@ -1,12 +1,86 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML>
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8" />
-</head>
-<body style="font-family:'Segoe UI'">
-    <h1>PomodoroBot</h1>
-    <p>Describe your bot here and your terms of use etc.</p>
-    <p>Visit <a href="https://www.botframework.com/">Bot Framework</a> to register your bot. When you register it, remember to set your bot's endpoint to <pre>https://<i>your_bots_hostname</i>/api/messages</p>
-</body>
+    <head>
+        <title>Chat Bridge</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    </head>
+    <body class="container-fluid">
+        <section class="row">
+            <section class="col-md-6">
+                <header id="header">
+                    <h1>PomodoroBot</h1>
+                    <p>
+                        PomodoroBot はポモドーロタイマーを実行する Bot サービスです<br />
+                        現在 Slack, Skype に対応しています
+                    </p>
+                </header>
+                <ul class="icons">
+                    <li><a href="https://slack.com/oauth/authorize?scope=incoming-webhook,bot&client_id=11135465285.38793416167"><img id="slack_button" alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a></li>
+                    <li><a href="https://join.skype.com/bot/8885f71b-06c6-40ee-bc59-6ccdcfa93bd6" target="_blank"><img id="skype_button" alt="Add to Skype" src="https://dev.botframework.com/Client/Images/Add-To-Skype-Buttons.png"></a></li>
+                </ul>
+                <br />
+                <br />
+            </section>
+        </section>
+        <section class="row">
+            <section class="col-md-6">
+                <h1>How to use</h1>
+                <ol>
+                    <li>
+                        上のボタンからあなたが使うチャットサービスのBotを登録します<br />
+                    </li>
+                    <li>
+                        登録したチャットサービス上で <pre>create</pre> コマンドを @pomodoro に送ってください<br />
+                        @pomodoro はタイマーの設定を促します<br />
+                        設定が完了すると<pre>[start {id}]</pre>のような返信が送られます<br />
+                        なお、設定の途中で操作がわからないときは <pre>?</pre> コマンドでヘルプを表示できます<br />
+                    </li>
+                    <li>
+                        返信のとおり、<pre>start {id}</pre>コマンドでタイマーを開始します<br />
+                    </li>
+                    <li>
+                        タイマーが不要になったときは <pre>stop {id}</pre>コマンドでタイマーを終了します<br />
+                    </li>
+                </ol>
+            </section>
+        </section>
+        <section class="row">
+            <section class="col-md-6">
+                <h1>Command List</h1>
+                <ol>
+                    <li>
+                        <pre>create</pre>タイマーを作成します<br />
+                    </li>
+                    <li>
+                        <pre>delete [id]</pre>タイマーを削除します<br />
+                    </li>
+                    <li>
+                        <pre>list</pre>タイマーを一覧表示します<br />
+                    </li>
+                    <li>
+                        <pre>start [id]</pre>タイマーを開始します<br />
+                    </li>
+                    <li>
+                        <pre>stop [id]</pre>タイマーを停止します<br />
+                    </li>
+                    <li>
+                        <pre>help</pre>ヘルプを表示します<br />
+                    </li>
+                </ol>
+            </section>
+        </section>
+        <footer id="footer">
+            <ul class="copyright">
+                <li>created by <a href="https://twitter.com/kheiakiyama" target="_blank">@kheiakiyama</a></li>
+            </ul>
+        </footer>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
