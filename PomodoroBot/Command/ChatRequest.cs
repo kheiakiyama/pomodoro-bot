@@ -25,8 +25,19 @@ namespace PomodoroBot.Command
         {
             return userData.Get<ChannelAccount>(BotAccountKey);
         }
-        
+
         private static readonly string AccountKey = "Account";
         private static readonly string BotAccountKey = "BotAccount";
+        
+        public Message CreateReplyMessage(Message message, string text)
+        {
+            return new Message()
+            {
+                From = new ChannelAccount() { ChannelId = message.To.ChannelId, Address = message.To.Address, },
+                To = new ChannelAccount() { ChannelId = message.From.ChannelId, Address = message.From.Address },
+                Text = text,
+                Language = message.Language
+            };
+        }
     }
 }

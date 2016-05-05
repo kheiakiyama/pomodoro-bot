@@ -41,5 +41,13 @@ namespace PomodoroBot.Models
         {
             await m_Table.ExecuteAsync(TableOperation.Delete(entity));
         }
+
+        public async Task<PomodoroTimerEntity[]> List(string accountId)
+        {
+            TableQuery<PomodoroTimerEntity> query = new TableQuery<PomodoroTimerEntity>()
+                .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, accountId));
+            var response = await m_Table.ExecuteQuerySegmentedAsync(query, null);
+            return response.Results.ToArray();
+        }
     }
 }
