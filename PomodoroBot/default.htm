@@ -25,14 +25,15 @@
         <nav id="nav">
             <ul>
                 <li><a href="#one" class="active">About</a></li>
-                <li><a href="#two">How To Use</a></li>
-                <li><a href="#three">Command List</a></li>
+                <li><a href="#two">Install</a></li>
+                <li><a href="#three">How To Use</a></li>
+                <li><a href="#four">Command List</a></li>
             </ul>
         </nav>
         <footer>
             <ul class="icons">
-                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true">Tweet</a></li>
+                <li><a href="http://b.hatena.ne.jp/entry/https://pomodorobot.azurewebsites.net" class="hatena-bookmark-button" data-hatena-bookmark-title="PomodoroBot" data-hatena-bookmark-layout="standard-noballoon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script></li>
             </ul>
         </footer>
     </section>
@@ -43,7 +44,6 @@
         <!-- Main -->
         <div id="main">
 
-            <!-- One -->
             <section id="one">
                 <div class="container">
                     <header class="major">
@@ -53,20 +53,25 @@
                             現在 Slack, Skype に対応しています
                         </p>
                     </header>
+                </div>
+            </section>
+
+            <section id="two">
+                <div class="container">
+                    <h3>Install</h3>
                     <ul id="bots" class="icons">
                         <li><a href="https://slack.com/oauth/authorize?scope=incoming-webhook,bot&client_id=11135465285.38793416167"><img id="slack_button" alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a></li>
                         <li><a href="https://join.skype.com/bot/8885f71b-06c6-40ee-bc59-6ccdcfa93bd6" target="_blank"><img id="skype_button" alt="Add to Skype" src="https://dev.botframework.com/Client/Images/Add-To-Skype-Buttons.png"></a></li>
                     </ul>
                 </div>
-            </section>
-
-            <!-- Two -->
-            <section id="two">
+             </section>
+                    
+            <section id="three">
                 <div class="container">
                     <h3>How To Use</h3>
                     <ol>
                         <li>
-                            上のボタンからあなたが使うチャットサービスのBotを登録します<br />
+                            Install のボタンからあなたが使うチャットサービスのBotを登録します<br />
                         </li>
                         <li>
                             登録したチャットサービス上で <pre>create</pre> コマンドを @pomodoro に送ってください<br />
@@ -84,47 +89,46 @@
                 </div>
             </section>
 
-            <!-- Three -->
-            <section id="three">
+                <section id="four">
+                    <div class="container">
+                        <h3>Command List</h3>
+                        <ul>
+                            <li>
+                                <pre>create</pre>タイマーを作成します<br />
+                            </li>
+                            <li>
+                                <pre>delete {id}</pre>タイマーを削除します<br />
+                            </li>
+                            <li>
+                                <pre>list</pre>タイマーを一覧表示します<br />
+                            </li>
+                            <li>
+                                <pre>start {id}</pre>タイマーを開始します<br />
+                            </li>
+                            <li>
+                                <pre>stop {id}</pre>タイマーを停止します<br />
+                            </li>
+                            <li>
+                                <pre>help</pre>ヘルプを表示します<br />
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer -->
+            <section id="footer">
                 <div class="container">
-                    <h3>Command List</h3>
-                    <ul>
-                        <li>
-                            <pre>create</pre>タイマーを作成します<br />
-                        </li>
-                        <li>
-                            <pre>delete {id}</pre>タイマーを削除します<br />
-                        </li>
-                        <li>
-                            <pre>list</pre>タイマーを一覧表示します<br />
-                        </li>
-                        <li>
-                            <pre>start {id}</pre>タイマーを開始します<br />
-                        </li>
-                        <li>
-                            <pre>stop {id}</pre>タイマーを停止します<br />
-                        </li>
-                        <li>
-                            <pre>help</pre>ヘルプを表示します<br />
-                        </li>
+                    <ul class="copyright">
+                        <li>created by <a href="https://twitter.com/kheiakiyama" target="_blank">@kheiakiyama</a></li>
+                        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        <li>photo credit: <a href="http://www.flickr.com/photos/98710001@N06/14652166615">Pomodoro thechnique</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">(license)</a></li>
                     </ul>
                 </div>
             </section>
+
         </div>
-
-        <!-- Footer -->
-        <section id="footer">
-            <div class="container">
-                <ul class="copyright">
-                    <li>created by <a href="https://twitter.com/kheiakiyama" target="_blank">@kheiakiyama</a></li>
-                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                    <li>photo credit: <a href="http://www.flickr.com/photos/98710001@N06/14652166615">Pomodoro thechnique</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">(license)</a></li>  
-                </ul>
-            </div>
-        </section>
-
-    </div>
-
+    <div id="fb-root"></div>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollzer.min.js"></script>
@@ -133,6 +137,8 @@
     <script src="assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="assets/js/main.js"></script>
-
+    <script>
+window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+    </script>
 </body>
 </html>
