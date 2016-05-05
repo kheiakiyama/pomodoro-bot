@@ -18,7 +18,7 @@
     <!-- Header -->
     <section id="header">
         <header>
-            <span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
+            <span class="image avatar"><img src="assets/images/pomodoro-logo.png" alt="" /></span>
             <h1 id="logo"><a href="#">Pomodoro Bot</a></h1>
             <p>Pomodoro Timer for Chat Service</p>
         </header>
@@ -53,7 +53,7 @@
                             現在 Slack, Skype に対応しています
                         </p>
                     </header>
-                    <ul class="icons">
+                    <ul id="bots" class="icons">
                         <li><a href="https://slack.com/oauth/authorize?scope=incoming-webhook,bot&client_id=11135465285.38793416167"><img id="slack_button" alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a></li>
                         <li><a href="https://join.skype.com/bot/8885f71b-06c6-40ee-bc59-6ccdcfa93bd6" target="_blank"><img id="skype_button" alt="Add to Skype" src="https://dev.botframework.com/Client/Images/Add-To-Skype-Buttons.png"></a></li>
                     </ul>
@@ -88,26 +88,26 @@
             <section id="three">
                 <div class="container">
                     <h3>Command List</h3>
-                    <ol>
+                    <ul>
                         <li>
                             <pre>create</pre>タイマーを作成します<br />
                         </li>
                         <li>
-                            <pre>delete [id]</pre>タイマーを削除します<br />
+                            <pre>delete {id}</pre>タイマーを削除します<br />
                         </li>
                         <li>
                             <pre>list</pre>タイマーを一覧表示します<br />
                         </li>
                         <li>
-                            <pre>start [id]</pre>タイマーを開始します<br />
+                            <pre>start {id}</pre>タイマーを開始します<br />
                         </li>
                         <li>
-                            <pre>stop [id]</pre>タイマーを停止します<br />
+                            <pre>stop {id}</pre>タイマーを停止します<br />
                         </li>
                         <li>
                             <pre>help</pre>ヘルプを表示します<br />
                         </li>
-                    </ol>
+                    </ul>
                 </div>
             </section>
         </div>
@@ -118,6 +118,7 @@
                 <ul class="copyright">
                     <li>created by <a href="https://twitter.com/kheiakiyama" target="_blank">@kheiakiyama</a></li>
                     <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    <li>photo credit: <a href="http://www.flickr.com/photos/98710001@N06/14652166615">Pomodoro thechnique</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">(license)</a></li>  
                 </ul>
             </div>
         </section>

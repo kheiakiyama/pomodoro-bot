@@ -127,6 +127,7 @@
     <Content Include="assets\css\ie8.css" />
     <Content Include="assets\css\main.css" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\images\pomodoro-logo.png" />
     <Content Include="assets\js\ie\html5shiv.js" />
     <Content Include="assets\js\ie\PIE.htc" />
     <Content Include="assets\js\ie\respond.min.js" />

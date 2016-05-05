@@ -1670,7 +1670,9 @@
 	pre {
 		font-family: "Source Code Pro", monospace;
 		font-size: 0.9em;
-		margin: 0 0 2.25em 0;
+        background-color: #f7f7f7;
+        color: #333;
+        padding: 2px 4px;
 	}
 
 		pre code {
@@ -2020,12 +2022,10 @@
 			}
 
 		.image.avatar {
-			border-radius: 100%;
 			overflow: hidden;
 		}
 
 			.image.avatar img {
-				border-radius: 100%;
 				display: block;
 				width: 100%;
 			}
@@ -2411,6 +2411,20 @@
 			opacity: 0.25;
 		}
 
+        #slack_button {
+            height: 30px;
+            width: 104.25px;
+        }
+
+        #skype_button {
+            height: 25px;
+            width: 112px;
+        }
+
+        #bots a {
+            border: none;
+        }
+
 /* Features */
 
 	.features article {
@@ -2569,19 +2583,6 @@
 		#main > section:first-child {
 			border-top: 0;
 		}
-
-/* One */
-
-	#one:before {
-		background-image: url("../../images/banner.jpg");
-		background-position: top right;
-		background-repeat: no-repeat;
-		background-size: cover;
-		content: '';
-		display: block;
-		height: 15em;
-		width: 100%;
-	}
 
 /* Footer */
 
