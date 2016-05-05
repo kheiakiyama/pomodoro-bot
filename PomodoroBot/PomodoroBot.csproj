@@ -134,6 +134,7 @@
     <Compile Include="Command\ChatRequest.cs" />
     <Compile Include="Command\Commands.cs" />
     <Compile Include="Command\CommandTool.cs" />
+    <Compile Include="Command\StartCommand.cs" />
     <Compile Include="Command\CreateCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PomodoroTimerBackend.cs" />
     <Compile Include="Models\PomodoroTimerEntity.cs" />
     <Compile Include="Models\PomodoroTimerRepository.cs" />
     <Compile Include="Models\Settings.cs" />

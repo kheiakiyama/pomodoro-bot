@@ -11,6 +11,7 @@ namespace PomodoroBot.Command
         public static IEnumerable<ICommand> GetItems()
         {
             yield return new CreateCommand();
+            yield return new StartCommand();
         }
     }
 }

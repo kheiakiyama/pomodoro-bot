@@ -32,6 +32,7 @@ namespace PomodoroBot.Command
                         await CommandTool.Instance.Repository.Add(entity);
                         context.PerUserInConversationData.SetValue<bool>(CreateTag, false);
                         await context.PostAsync("timer is created.");
+                        await context.PostAsync($"this timer will start [start {entity.RowKey}] to me.");
                         PomodoroNotification info = new PomodoroNotification()
                         {
                             Key = entity.RowKey,
