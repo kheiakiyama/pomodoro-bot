@@ -12,6 +12,7 @@ namespace PomodoroBot.Command
         {
             yield return new CreateCommand();
             yield return new StartCommand();
+            yield return new StopCommand();
         }
     }
 }
