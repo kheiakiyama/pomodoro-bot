@@ -25,7 +25,7 @@ namespace PomodoroBot.Command
         public async Task<Message> Reply(Message message)
         {
             var id = m_Regex.Match(message.Text.ToLower()).Groups[1].Value;
-            var entity = await CommandTool.Instance.Repository.Find(id);
+            var entity = await CommandTool.Instance.Repository.Find(id, message.From.Id);
             if (entity != null)
             {
                 PomodoroTimerBackend timer = new PomodoroTimerBackend();

@@ -21,10 +21,13 @@ namespace PomodoroBot.Models
             m_Table.CreateIfNotExists();
         }
 
-        public async Task<PomodoroTimerEntity> Find(string key)
+        public async Task<PomodoroTimerEntity> Find(string key, string accountId)
         {
             TableQuery<PomodoroTimerEntity> query = new TableQuery<PomodoroTimerEntity>()
-                .Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, key));
+                .Where(TableQuery.CombineFilters(
+                    TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, key),
+                    TableOperators.And,
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, accountId)));
             var response = await m_Table.ExecuteQuerySegmentedAsync(query, null);
             return response.Results.Count == 0 ? null : response.Results[0];
         }
