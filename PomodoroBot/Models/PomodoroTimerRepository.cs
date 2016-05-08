@@ -57,5 +57,13 @@ namespace PomodoroBot.Models
             var response = await m_Table.ExecuteQuerySegmentedAsync(query, null);
             return response.Results.ToArray();
         }
+
+        public async Task<PomodoroTimerEntity[]> ListIsRunning()
+        {
+            TableQuery<PomodoroTimerEntity> query = new TableQuery<PomodoroTimerEntity>()
+                .Where(TableQuery.GenerateFilterConditionForBool("IsRunning", QueryComparisons.Equal, true));
+            var response = await m_Table.ExecuteQuerySegmentedAsync(query, null);
+            return response.Results.ToArray();
+        }
     }
 }

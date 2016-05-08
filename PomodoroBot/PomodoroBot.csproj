@@ -155,7 +155,9 @@
     <Compile Include="Command\StartCommand.cs" />
     <Compile Include="Command\CreateCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Controllers\DeployHookController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Models\HerokuDeployHookPayload.cs" />
     <Compile Include="Models\PomodoroNotification.cs" />
     <Compile Include="Models\PomodoroQueueRepository.cs" />
     <Compile Include="Models\PomodoroTimer.cs" />
