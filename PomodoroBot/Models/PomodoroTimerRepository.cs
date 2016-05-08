@@ -45,6 +45,11 @@ namespace PomodoroBot.Models
             await m_Table.ExecuteAsync(TableOperation.Delete(entity));
         }
 
+        public async Task Update(PomodoroTimerEntity entity)
+        {
+            await m_Table.ExecuteAsync(TableOperation.Replace(entity));
+        }
+
         public async Task<PomodoroTimerEntity[]> List(string accountId)
         {
             TableQuery<PomodoroTimerEntity> query = new TableQuery<PomodoroTimerEntity>()

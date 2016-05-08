@@ -19,6 +19,7 @@ namespace PomodoroBot.Models
         public string ChannelId { get; set; }
         public string Address { get; set; }
         public string BotAddress { get; set; }
+        public bool IsRunning { get; set; }
 
         public PomodoroTimerEntity()
         {

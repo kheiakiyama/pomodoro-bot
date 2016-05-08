@@ -28,7 +28,11 @@ namespace PomodoroBot.Command
             PomodoroTimerBackend timer = new PomodoroTimerBackend();
             var entity = await CommandTool.Instance.Repository.Find(id, message.From.Id);
             if (entity != null && await timer.Start(entity))
+            {
+                entity.IsRunning = true;
+                await CommandTool.Instance.Repository.Update(entity);
                 return message.CreateReplyMessage("");
+            }
             else
                 return message.CreateReplyMessage($"timer can't start. id:{id}");
         }
