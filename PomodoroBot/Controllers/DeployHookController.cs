@@ -26,7 +26,7 @@ namespace PomodoroBot
             var records = await CommandTool.Instance.Repository.ListIsRunning();
             foreach(var item in records)
             {
-                var response = CommandTool.Instance.Request.CreateReplyMessage(item, "this service was deployed.\n\nPlease restart.");
+                var response = CommandTool.Instance.Request.CreateReplyMessage(item, "This service was deployed.\n\nPlease restart.");
                 await CommandTool.Instance.Client.Messages.SendMessageAsync(response);
             }
             return "done";
