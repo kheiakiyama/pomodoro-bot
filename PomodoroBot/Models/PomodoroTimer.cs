@@ -10,6 +10,7 @@ namespace PomodoroBot
     [Serializable]
     public class PomodoroTimer
     {
+        [Describe("name")]
         public string Name { get; set; }
 
         [Describe("duration minutes")]
