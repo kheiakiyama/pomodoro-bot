@@ -20,7 +20,7 @@ namespace PomodoroBot
         [Numeric(1, 20)]
         public int ShortBreak { get; set; }
 
-        [Describe("take a long break when spent many times Pomodoro?")]
+        [Describe("long break span")]
         [Numeric(2, 10)]
         public int LongBreakSpan { get; set; }
 
