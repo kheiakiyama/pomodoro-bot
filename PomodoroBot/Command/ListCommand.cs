@@ -23,14 +23,7 @@ namespace PomodoroBot.Command
         {
             var entities = await CommandTool.Instance.Repository.List(message.From.Id);
             if (entities.Length > 0)
-            {
-                foreach (var entity in entities)
-                {
-                    var response = CommandTool.Instance.Request.CreateReplyMessage(message, $"name: {entity.Name} id: {entity.RowKey}");
-                    await CommandTool.Instance.Client.Messages.SendMessageAsync(response);
-                }
-                return message.CreateReplyMessage("");
-            }
+                return message.CreateReplyMessage(string.Join("\n\n", entities.Select(q => string.Join("\n\n", q.Descript()))));
             else
                 return message.CreateReplyMessage($"timer can't be found.");
         }

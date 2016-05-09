@@ -32,17 +32,6 @@ namespace PomodoroBot.Command
         private static readonly string BotAccountKey = "BotAccount";
         internal string Host { get; private set; }
         
-        public Message CreateReplyMessage(Message message, string text)
-        {
-            return new Message()
-            {
-                From = new ChannelAccount() { ChannelId = message.To.ChannelId, Address = message.To.Address, },
-                To = new ChannelAccount() { ChannelId = message.From.ChannelId, Address = message.From.Address },
-                Text = text,
-                Language = message.Language
-            };
-        }
-
         public Message CreateReplyMessage(PomodoroTimerEntity entity, string text)
         {
             return new Message()

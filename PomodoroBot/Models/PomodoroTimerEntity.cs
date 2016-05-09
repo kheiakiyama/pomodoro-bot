@@ -38,5 +38,15 @@ namespace PomodoroBot.Models
             Address = from.Address;
             BotAddress = bot.Address;
         }
+
+        public IEnumerable<string> Descript()
+        {
+            yield return $"[{RowKey}]";
+            yield return $"{PomodoroTimer.DescName}: {Name}";
+            yield return $"{PomodoroTimer.DescDuration}: {Duration}";
+            yield return $"{PomodoroTimer.DescShortBreak}: {ShortBreak}";
+            yield return $"{PomodoroTimer.DescLongBreakSpan}: {LongBreakSpan}";
+            yield return $"{PomodoroTimer.DescLongBreak}: {LongBreak}";
+        }
     }
 }
