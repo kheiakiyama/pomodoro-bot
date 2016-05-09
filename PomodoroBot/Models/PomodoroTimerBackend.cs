@@ -25,6 +25,7 @@ namespace PomodoroBot.Models
         {
             var data = new NameValueCollection();
             data.Add("id", entity.RowKey);
+            data.Add("name", entity.Name);
             data.Add("channelId", entity.ChannelId);
             data.Add("from", entity.BotAddress);
             data.Add("to", entity.Address);
