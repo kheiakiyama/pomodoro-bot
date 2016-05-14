@@ -2584,6 +2584,16 @@
 			border-top: 0;
 		}
 
+/* code */
+    #code .fa-github {
+        font-size: 1.2em;
+        margin: 5px 0;
+    }
+
+    #code .fa-github a {
+        margin-left: 3px;
+    }
+
 /* Footer */
 
 	#footer {
@@ -2756,9 +2766,9 @@
 				padding: 44px 0 1px 0;
 			}
 
-		/* One */
+		/* about */
 
-			#one:before {
+			#about:before {
 				height: 10em;
 			}
 
@@ -2954,9 +2964,9 @@
 				padding: 2em 0 0 0;
 			}
 
-		/* One */
+		/* about */
 
-			#one:before {
+			#about:before {
 				height: 7em;
 			}
 
