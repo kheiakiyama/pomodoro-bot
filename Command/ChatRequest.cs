@@ -15,7 +15,6 @@ namespace PomodoroBot.Command
         {
             message.SetBotUserData(AccountKey, message.From);
             message.SetBotUserData(BotAccountKey, message.To);
-            Host = $"http://{request.RequestUri.Authority}";
         }
 
         public ChannelAccount GetAccount(IBotDataBag userData)
@@ -30,7 +29,6 @@ namespace PomodoroBot.Command
 
         private static readonly string AccountKey = "Account";
         private static readonly string BotAccountKey = "BotAccount";
-        internal string Host { get; private set; }
         
         public Message CreateReplyMessage(PomodoroTimerEntity entity, string text)
         {

@@ -21,7 +21,7 @@ namespace PomodoroBot.Command
         
         public async Task<Message> Reply(Message message)
         {
-            return message.CreateReplyMessage($"visit {CommandTool.Instance.Request.Host}");
+            return message.CreateReplyMessage($"visit {Settings.Get("Help")}");
         }
     }
 }
